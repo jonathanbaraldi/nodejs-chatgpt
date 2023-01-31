@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 
 var redis = require('redis');
 
-
 // Variáveis de ambiente do DOCKER
 
 // console.log(process.env);
