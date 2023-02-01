@@ -6,16 +6,17 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [pull_request]
 
 jobs:
-  chatgpt_comment:
+  code_review:
     runs-on: ubuntu-latest
-    name: Let chatgpt comment on your PR.
+    name: openai code review
     steps:
-      - name: ChatGPT comment
-        uses: kxxt/chatgpt-action@HEAD
-        id: hello
-        with:
-          number: ${{ github.event.pull_request.number }}
-          sessionToken: ${{ secrets.CHATGPT_SESSION_TOKEN }}
-          split: true
+      - name: openai
+        uses: crnvl96/openai-golang-github-integration@1.0.16
         env:
-          GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.CHATGPT_SESSION_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PR_ID: ${{ github.event.number }}
+        with:
+          openai_api_key: ${{ secrets.CHATGPT_SESSION_TOKEN }}
+          github_token: ${{ secrets.GIT_HUB_TOKEN }}
+          github_pr_id: ${{ github.event.number }}
