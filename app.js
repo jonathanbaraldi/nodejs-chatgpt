@@ -4,20 +4,6 @@ var bodyParser = require('body-parser');
 
 var redis = require('redis');
 
-
-
-
-// Variáveis de ambiente do DOCKER
-
-// console.log(process.env);
-
-	// APPROACH 2: Using host entries created by Docker in /etc/hosts (RECOMMENDED)
-	// var client = redis.createClient('6379', 'redis');
-
-	// var redis_host = process.env.REDIS_PORT_6379_TCP_ADDR;
-	// var redis_port = process.env.REDIS_PORT_6379_TCP_PORT;
-
-
 // 32770
 var client = redis.createClient('6379', 'redis');
 
