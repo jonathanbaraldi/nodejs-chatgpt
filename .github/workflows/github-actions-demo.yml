@@ -8,14 +8,10 @@ on: [pull_request]
 jobs:
   code_review:
     runs-on: ubuntu-latest
-    name: openai code review
+    name: AI code review
     steps:
-      - name: openai
-        uses: crnvl96/openai-golang-github-integration@1.0.16
-        env:
-          OPENAI_API_KEY: ${{ secrets.CHATGPT_SESSION_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_PR_ID: ${{ github.event.number }}
+      - name: ChatGTP explains
+        uses: crnvl96/gh-gpt-integration-node@1.0.22
         with:
           openai_api_key: ${{ secrets.CHATGPT_SESSION_TOKEN }}
           github_token: ${{ secrets.GIT_HUB_TOKEN }}
