@@ -1,23 +1,20 @@
-#on: [pull_request]
-#name: ChatGPT CodeReview
-
 name: ChatGPT CodeReview
-
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
-
+on:
+  pull_request: # Trigger the workflow on pull request events
+    types: [opened, synchronize] # Run the workflow when pull request is opened or synchronized
 
 jobs:
-  chatgpt_comment:
-    runs-on: ubuntu-latest
-    name: Let chatgpt comment on your PR.
+  hello_world_job: # Define the job
+    runs-on: ubuntu-latest # Specify the runner to run the job on
+    name: ChatGPT explain code # Job name
     steps:
-      - name: ChatGPT comment
-        uses: kxxt/chatgpt-action@v0.3
-        id: chatgpt
+      - name: ChatGPT explain code # Step name
+        uses: jonathanbaraldi/github-actions-chatgpt@main # Use the ChatGPT Github Actions from cirolini repository
         with:
-          number: ${{ github.event.pull_request.number }}
-          sessionToken: ${{ secrets.CHATGPT_SESSION_TOKEN }}
-          split: true  # Use true to enable the unstable split feature.
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
+          openai_api_key: ${{ secrets.CHATGPT_SESSION_TOKEN }} # Get the OpenAI API key from repository secrets
+          github_token: ${{ secrets.GIT_HUB_TOKEN }} # Get the Github Token from repository secrets
+          github_pr_id: ${{ github.event.number }} # Get the Github Pull Request ID from the Github event
+          openai_engine: "text-davinci-002" # Optional: specify the OpenAI engine to use. Default is "text-davinci-002"
+          openai_temperature: 0.5 # Optional: specify the sampling temperature for OpenAI. Default is 0.5
+          openai_max_tokens: 2048 # Optional: specify the maximum number of tokens to generate in OpenAI completion. Default is 2048
