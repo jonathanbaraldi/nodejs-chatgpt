@@ -12,11 +12,8 @@ jobs:
     steps:
       - name: ChatGPT comment
         uses: kxxt/chatgpt-action@HEAD
-<<<<<<< HEAD
         id: hello
-=======
         id: chatgpt
->>>>>>> 349aa0374aa9de318212dfaa03f0e21bab852bb7
         with:
           number: ${{ github.event.pull_request.number }}
           sessionToken: ${{ secrets.CHATGPT_SESSION_TOKEN }}
