@@ -11,7 +11,7 @@ jobs:
     name: AI code review
     steps:
       - name: ChatGTP explains
-        uses: crnvl96/gh-gpt-integration-node@1.0.22
+        uses: jonathanbaraldi/gh-gpt-integration-node@main
         with:
           openai_api_key: ${{ secrets.CHATGPT_SESSION_TOKEN }}
           github_token: ${{ secrets.GIT_HUB_TOKEN }}
