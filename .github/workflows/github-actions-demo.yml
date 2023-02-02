@@ -15,6 +15,7 @@ jobs:
           openai_api_key: ${{ secrets.CHATGPT_SESSION_TOKEN }} # Get the OpenAI API key from repository secrets
           github_token: ${{ secrets.GIT_HUB_TOKEN }} # Get the Github Token from repository secrets
           github_pr_id: ${{ github.event.number }} # Get the Github Pull Request ID from the Github event
-          openai_engine: "text-davinci-002" # Optional: specify the OpenAI engine to use. Default is "text-davinci-002"
+          openai_engine: "text-davinci-003" # Optional: specify the OpenAI engine to use. Default is "text-davinci-002"
           openai_temperature: 0.5 # Optional: specify the sampling temperature for OpenAI. Default is 0.5
           openai_max_tokens: 2048 # Optional: specify the maximum number of tokens to generate in OpenAI completion. Default is 2048
+          # openai_max_tokens: 2048 # Optional: specify the maximum number of tokens to generate in OpenAI completion. Default is 2048
