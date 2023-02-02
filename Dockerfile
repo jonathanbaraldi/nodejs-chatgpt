@@ -1,4 +1,3 @@
-
 FROM node:alpine
 
 MAINTAINER Jonathan Baraldi
