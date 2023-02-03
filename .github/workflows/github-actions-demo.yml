@@ -2,7 +2,7 @@ name: ChatGPT CodeReview
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   pull_request: # Trigger the workflow on pull request events
-    types: [opened] # Run the workflow when pull request is opened or synchronized
+    types: [opened,synchronized] # Run the workflow when pull request is opened or synchronized
 
 jobs:
   hello_world_job: # Define the job
