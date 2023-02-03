@@ -25,8 +25,6 @@ app.use(function(req, res, next) {
 });
 
 
-
-
 // GET
 app.get('/',function(req,res){
 	var data = {
@@ -78,11 +76,6 @@ app.get('/html',function(req,res){
 	res.write(body);
 	res.end();
 });
-
-
-// ===================================
-
-
 app.listen(8080,function(){
 	console.log("Conectado e escutando na porta 8080");
 });
