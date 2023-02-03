@@ -56,6 +56,9 @@ app.get('/redis',function(req,res){
 
 
 
+
+
+
 // GET 
 app.get('/html',function(req,res){
 	
