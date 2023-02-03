@@ -1,7 +1,6 @@
 FROM node:alpine
 
 MAINTAINER Jonathan Baraldi
-
 RUN mkdir -p /src 
 WORKDIR /src
 ADD . /src
